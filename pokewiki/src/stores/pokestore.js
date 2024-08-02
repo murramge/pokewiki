@@ -9,12 +9,11 @@ const fetchPokemon = async () => {
     const res = await fetch(url);
     const data = await res.json();
 
-    console.log(koreanNames)
     const loadedPokemon = data.results.map((pokemon, index) => {
         return {
             name: koreanNames[index],
             id: index + 1,
-            image: `https://raw.githubsercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`
+            image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`
         }
     })
 
@@ -36,7 +35,7 @@ Promise.all(requests)
     .then((responses) => Promise.all(responses.map(res => res.json())))
     .then((results) => {
         for (let result of results) {
-            console.log(result)
+       
             koreanNames.push(result.names[2].name);
         }
         fetchPokemon();
