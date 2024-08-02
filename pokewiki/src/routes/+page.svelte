@@ -1,6 +1,14 @@
+<script>
+    import {arrPokemon} from "../stores/pokestore";
+
+</script>
+
+
 <svelte:head>
     <title>포켓몬 위키</title>
 </svelte:head>
 
 <h1 class="text-4xl text-center my-8 font-bold underline">포켓몬 위키 사이트</h1>
-
+{#each $arrPokemon as pokemon}
+<p>{pokemon.name}</p>
+{/each}
